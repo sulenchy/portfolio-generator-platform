@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "students"
+    label: "Student Portfolios"
+    folder: "content/students"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Tagline", name: "tagline", widget: "string"}
+      - {label: "Bio", name: "bio", widget: "text"}
+      - {label: "Skills", name: "skills", widget: "list"}
+      - {label: "Projects", name: "projects", widget: "list", fields: [
+          {label: "Project Title", name: "title", widget: "string"},
+          {label: "Description", name: "description", widget: "text"},
+          {label: "Link", name: "link", widget: "string"}
+        ]}
+      - {label: "Profile Image", name: "profile_image", widget: "image"}
+      - {label: "Selected Template", name: "template", widget: "select", options: ["classic", "modern", "minimal"]}
